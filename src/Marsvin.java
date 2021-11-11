@@ -75,7 +75,4 @@ public class Marsvin implements Comparable {
     return weight;
   }
 
-  public String getUnit() {
-    return unit;
-  }
 }

@@ -43,24 +43,17 @@ public class Application {
     System.out.println("\033[0;1m" + "ArrayListen før sortering: " + "\033[0;0m" + "\n");
     int counter = 1;
 
-    //grunden til jeg bruger sådan en For Loop er så jeg får selve indholdet af Arrayen (Objekterne),
-    // og min replacements er kun til det som ArrayListen på automatik generer
-    for (int i = 0; i < listOfMarsvin.size(); i++) {
-      listOfMarsvin.toString().replace(",", "")//Fjerner brackets og komma fra Arraylisten når den skal printes
-          .replace("[", "")
-          .replace("]", "");
-      System.out.println("\033[0;1m" + "Marsvin " + counter++ + "\033[0;0m" + ": " + listOfMarsvin.get(i));
+    for (Marsvin marsvin : listOfMarsvin) {
+      System.out.println("\033[0;1m" + "Marsvin " + counter++ + "\033[0;0m" + ": " + marsvin);
     }
-
-   /*
+line();
+/*
    //Den her er også en måde at gøre det på, så printer du self bare arraylisten ud, hvor der er replacet, og Brackets
    System.out.println(listOfMarsvin.toString().replace(",","")//Fjerner brackets og komma fra Arraylisten når den skal printes
         .replace("[","")
             .replace("]",""));
 
-    */
-
-    line();
+ */
   }
 
   private void printSortedArray() {
@@ -68,14 +61,10 @@ public class Application {
     Collections.sort(listOfMarsvin); //Først sorter jeg min liste ved hjælp af Comparable
     int counter = 1;
 
-    for (int i = 0; i < listOfMarsvin.size(); i++) {
-      listOfMarsvin.toString().replace(",", "")//Fjerner brackets og komma fra Arraylisten når den skal printes
-          .replace("[", "")
-          .replace("]", "");
-      System.out.println("\033[0;1m" + "Marsvin " + counter++ + "\033[0;0m" + ": " + listOfMarsvin.get(i));
+    for (Marsvin marsvin : listOfMarsvin){
+      System.out.println("\033[0;1m" + "Marsvin " + counter++ + "\033[0;0m" + ": " + marsvin);
     }
-    System.out.println("----------------------------" +
-        "-------------------------------" + "\n");
+    line();
   }
 
   private void sumGram() {
