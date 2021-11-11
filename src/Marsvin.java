@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Marsvin {
+public class Marsvin implements Comparable {
 
   private String name;
   private String race;
@@ -30,5 +30,14 @@ public class Marsvin {
   public String toString() {
     return "Navn: " + name + ", Race: " + race +
         ", Vægt: " + weight + "\n";
+  }
+
+  @Override
+  public int compareTo(Object o) {
+    return 0;
+  }
+
+  public int getWeight() {
+    return weight;
   }
 }
