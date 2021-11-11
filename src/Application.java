@@ -6,7 +6,9 @@ import java.util.*;
 
 
 public class Application {
+
   ArrayList<Marsvin> listOfMarsvin = new ArrayList<>();
+
   final String fileName = "Marsvin.txt";
 
   public static void main(String[] args) throws IOException {
@@ -23,28 +25,34 @@ public class Application {
     Scanner reader = new Scanner(new File(fileName));
     System.out.println("----------------------------" +
         "-------------------------------"+"\n");
+    System.out.println("Marsvin der skal indlæsses i ArrayListen:\n");
+    int counter = 1;
     while (reader.hasNext()) {
       String lines = reader.nextLine();
       Marsvin marsvin = new Marsvin();
       marsvin.setDataFromFileLine(lines);
       listOfMarsvin.add(marsvin);
-      System.out.println("Indlæste marsvin: " + marsvin);
+      System.out.println("Marsvin "+counter+++": " + marsvin);
     }
     System.out.println("----------------------------" +
         "-------------------------------"+"\n");
   }
 
   private void printArray(){
-    System.out.println("ArrayListen før sortering: \n");
-    System.out.println(listOfMarsvin);
+    System.out.println("ArrayListen før sortering: ");
+    System.out.println(listOfMarsvin.toString().replace(",","")
+        .replace("[","")
+            .replace("]",""));
     System.out.println("----------------------------" +
         "-------------------------------"+"\n");
   }
 
   private void printSortedArray(){
-    System.out.println("ArrayListen efter sortering: \n");
+    System.out.println("ArrayListen efter sortering: ");
     Collections.sort(listOfMarsvin);
-    System.out.println(listOfMarsvin);
+    System.out.println(listOfMarsvin.toString().replace(",","")
+        .replace("[","")
+        .replace("]",""));
     System.out.println("----------------------------" +
         "-------------------------------"+"\n");
   }
