@@ -14,47 +14,68 @@ public class Application {
   public static void main(String[] args) throws IOException {
     Application app = new Application();
     app.readFile();
-    app.sumGram();
     app.printArray();
     app.printSortedArray();
+    app.sumGram();
 
 
   }
 
   private void readFile() throws IOException {
+    line();
     Scanner reader = new Scanner(new File(fileName));
-    System.out.println("----------------------------" +
-        "-------------------------------"+"\n");
-    System.out.println("Marsvin der skal indlæsses i ArrayListen:\n");
+
+    System.out.println("\033[0;1m" + "Marsvin der skal indlæsses i ArrayListen:\n" + "\033[0;0m");//"\033[0;1m" gør at alt tekst efter er BOLD,
+    // "\033[0;0m" gør at Teksten skal stoppe med at være BOLD
     int counter = 1;
+
     while (reader.hasNext()) {
       String lines = reader.nextLine();
       Marsvin marsvin = new Marsvin();
       marsvin.setDataFromFileLine(lines);
       listOfMarsvin.add(marsvin);
-      System.out.println("Marsvin "+counter+++": " + marsvin);
+      System.out.println("\033[0;1m" + "Marsvin " + counter++ + "\033[0;0m" + ": " + marsvin);
     }
-    System.out.println("----------------------------" +
-        "-------------------------------"+"\n");
+    line();
   }
 
-  private void printArray(){
-    System.out.println("ArrayListen før sortering: ");
-    System.out.println(listOfMarsvin.toString().replace(",","")
+  private void printArray() {
+    System.out.println("\033[0;1m" + "ArrayListen før sortering: " + "\033[0;0m" + "\n");
+    int counter = 1;
+
+    //grunden til jeg bruger sådan en For Loop er så jeg får selve indholdet af Arrayen (Objekterne),
+    // og min replacements er kun til det som ArrayListen på automatik generer
+    for (int i = 0; i < listOfMarsvin.size(); i++) {
+      listOfMarsvin.toString().replace(",", "")//Fjerner brackets og komma fra Arraylisten når den skal printes
+          .replace("[", "")
+          .replace("]", "");
+      System.out.println("\033[0;1m" + "Marsvin " + counter++ + "\033[0;0m" + ": " + listOfMarsvin.get(i));
+    }
+
+   /*
+   //Den her er også en måde at gøre det på, så printer du self bare arraylisten ud, hvor der er replacet, og Brackets
+   System.out.println(listOfMarsvin.toString().replace(",","")//Fjerner brackets og komma fra Arraylisten når den skal printes
         .replace("[","")
             .replace("]",""));
-    System.out.println("----------------------------" +
-        "-------------------------------"+"\n");
+
+    */
+
+    line();
   }
 
-  private void printSortedArray(){
-    System.out.println("ArrayListen efter sortering: ");
-    Collections.sort(listOfMarsvin);
-    System.out.println(listOfMarsvin.toString().replace(",","")
-        .replace("[","")
-        .replace("]",""));
+  private void printSortedArray() {
+    System.out.println("\033[0;1m" + "ArrayListen efter sortering: " + "\033[0;0m" + "\n");
+    Collections.sort(listOfMarsvin); //Først sorter jeg min liste ved hjælp af Comparable
+    int counter = 1;
+
+    for (int i = 0; i < listOfMarsvin.size(); i++) {
+      listOfMarsvin.toString().replace(",", "")//Fjerner brackets og komma fra Arraylisten når den skal printes
+          .replace("[", "")
+          .replace("]", "");
+      System.out.println("\033[0;1m" + "Marsvin " + counter++ + "\033[0;0m" + ": " + listOfMarsvin.get(i));
+    }
     System.out.println("----------------------------" +
-        "-------------------------------"+"\n");
+        "-------------------------------" + "\n");
   }
 
   private void sumGram() {
@@ -63,9 +84,8 @@ public class Application {
     for (Marsvin marsvin : listOfMarsvin) {
       sum = sum + marsvin.getWeight();
     }
-    System.out.println("Antal Gram Foder: " + sum + "g");
-    System.out.println("\n----------------------------" +
-        "-------------------------------"+"\n");
+    System.out.println("\033[0;1m" + "Antal Gram Foder: " + "\033[0;0m" + "\n" + sum + "g\n");
+    line();
   }
 
 /*
@@ -91,5 +111,10 @@ private int sumGram1() {
   }
 
  */
+
+  private void line() {
+    System.out.println("----------------------------" +
+        "-------------------------------" + "\n");
+  } //Bruger til at fordele mellem printen
 }
 

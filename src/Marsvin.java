@@ -8,6 +8,8 @@ public class Marsvin implements Comparable{
   private int weight;
   private String unit;
 
+
+
   public Marsvin() {
 
   }
@@ -34,9 +36,17 @@ public class Marsvin implements Comparable{
 
   @Override
   public String toString() {
-    return "\n"+"Navn: " + name + ", Race: " + race +
-        ", Vægt: " + weight + unit +"\n";
+    return "\n"+
+        "\033[0;1m" + "Navn: "+ "\033[0;0m" + name +
+        "\033[0;1m" +", Race: "+ "\033[0;0m" + race +
+        "\033[0;1m" +", Vægt: "+ "\033[0;0m" +
+        weight + unit +"\n";
   }
+  /*
+  "\033[0;1m" Gør at alt tekst efter bliver BOLD
+  "\033[0;0m" Den her slutter BOLD
+
+   */
 
   @Override
   public int compareTo(Object o) {
