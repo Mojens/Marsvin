@@ -83,8 +83,8 @@ line();
   } //Bruger til at fordele mellem printen
 
   //Alternativ Måde at regne Gram på
-  /*
-  private int sumGram1() {
+/*
+  private int sumGram1(){
   //Dette for neden er anden måde at gøre det på,
   //ved at ændre Arraylistens datatype til en Strings
   ArrayList<String> marsvinArrayList = new ArrayList<>();
@@ -92,8 +92,8 @@ line();
 
   int sum1 = 0;
   for (String findGram : marsvinArrayList) {
-    for (String Clear : marsvinArrayList) {
-      marsvinArrayList.toString();
+    for (String clear : marsvinArrayList) {
+      findGram=clear;
       String gram = findGram.substring(findGram.indexOf("Vægt: ") + 6);
       gram = gram.substring(0, gram.indexOf(" "));
       int gramSum = Integer.parseInt(gram);
@@ -103,9 +103,10 @@ line();
   }
   return sum1;
  }
+
+ */
   }
 
-  */
 
-}
+
 
