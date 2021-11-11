@@ -88,8 +88,14 @@ public class Application {
     line();
   }
 
-/*
-private int sumGram1() {
+  private void line() {
+    System.out.println("----------------------------" +
+        "-------------------------------" + "\n");
+  } //Bruger til at fordele mellem printen
+
+  //Alternativ Måde at regne Gram på
+  /*
+  private int sumGram1() {
   //Dette for neden er anden måde at gøre det på,
   //ved at ændre Arraylistens datatype til en Strings
   ArrayList<String> marsvinArrayList = new ArrayList<>();
@@ -107,14 +113,10 @@ private int sumGram1() {
     }
   }
   return sum1;
-}
+ }
   }
 
- */
+  */
 
-  private void line() {
-    System.out.println("----------------------------" +
-        "-------------------------------" + "\n");
-  } //Bruger til at fordele mellem printen
 }
 

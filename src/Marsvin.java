@@ -1,13 +1,12 @@
 import java.util.Scanner;
 
-public class Marsvin implements Comparable{
+public class Marsvin implements Comparable {
   //Kunne også have skrevet Comparable<Marsvin>, Så behøvede man ikke instanceOf.
 
   private String name;
   private String race;
   private int weight;
   private String unit;
-
 
 
   public Marsvin() {
@@ -36,11 +35,11 @@ public class Marsvin implements Comparable{
 
   @Override
   public String toString() {
-    return "\n"+
-        "\033[0;1m" + "Navn: "+ "\033[0;0m" + name +
-        "\033[0;1m" +", Race: "+ "\033[0;0m" + race +
-        "\033[0;1m" +", Vægt: "+ "\033[0;0m" +
-        weight + unit +"\n";
+    return "\n" +
+        "\033[0;1m" + "Navn: " + "\033[0;0m" + name +
+        "\033[0;1m" + ", Race: " + "\033[0;0m" + race +
+        "\033[0;1m" + ", Vægt: " + "\033[0;0m" +
+        weight + unit + "\n";
   }
   /*
   "\033[0;1m" Gør at alt tekst efter bliver BOLD
@@ -62,10 +61,10 @@ public class Marsvin implements Comparable{
     return 0;
      */
     //Sorter efter størelse på navn
-    if (o instanceof Marsvin){
-      if (name.length()<((Marsvin) o).name.length()){
+    if (o instanceof Marsvin) {
+      if (name.length() < ((Marsvin) o).name.length()) {
         return -1;
-      }else if (name.length()>((Marsvin) o).name.length()){
+      } else if (name.length() > ((Marsvin) o).name.length()) {
         return 1;
       }
     }
