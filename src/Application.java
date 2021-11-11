@@ -12,36 +12,76 @@ public class Application {
   public static void main(String[] args) throws IOException {
     Application app = new Application();
     app.readFile();
-    System.out.println(" ");
-    System.out.println(app.listOfMarsvin);
-    System.out.println(" ");
     app.sumGram();
+    app.printArray();
+    app.printSortedArray();
+
+
   }
 
   private void readFile() throws IOException {
     Scanner reader = new Scanner(new File(fileName));
-    while (reader.hasNext()){
+    System.out.println("----------------------------" +
+        "-------------------------------"+"\n");
+    while (reader.hasNext()) {
       String lines = reader.nextLine();
       Marsvin marsvin = new Marsvin();
       marsvin.setDataFromFileLine(lines);
       listOfMarsvin.add(marsvin);
-      System.out.println("Indlæst marsvin: "+ marsvin);
+      System.out.println("Indlæste marsvin: " + marsvin);
+    }
+    System.out.println("----------------------------" +
+        "-------------------------------"+"\n");
+  }
+
+  private void printArray(){
+    System.out.println("ArrayListen før sortering: \n");
+    System.out.println(listOfMarsvin);
+    System.out.println("----------------------------" +
+        "-------------------------------"+"\n");
+  }
+
+  private void printSortedArray(){
+    System.out.println("ArrayListen efter sortering: \n");
+    Collections.sort(listOfMarsvin);
+    System.out.println(listOfMarsvin);
+    System.out.println("----------------------------" +
+        "-------------------------------"+"\n");
+  }
+
+  private void sumGram() {
+    //dette er summen af alle marsvins objekters weight tilsammen
+    int sum = 0;
+    for (Marsvin marsvin : listOfMarsvin) {
+      sum = sum + marsvin.getWeight();
+    }
+    System.out.println("Antal Gram Foder: " + sum + "g");
+    System.out.println("\n----------------------------" +
+        "-------------------------------"+"\n");
+  }
+
+/*
+private int sumGram1() {
+  //Dette for neden er anden måde at gøre det på,
+  //ved at ændre Arraylistens datatype til en Strings
+  ArrayList<String> marsvinArrayList = new ArrayList<>();
+  marsvinArrayList.add(String.valueOf(listOfMarsvin));
+
+  int sum1 = 0;
+  for (String findGram : marsvinArrayList) {
+    for (String Clear : marsvinArrayList) {
+      marsvinArrayList.toString();
+      String gram = findGram.substring(findGram.indexOf("Vægt: ") + 6);
+      gram = gram.substring(0, gram.indexOf(" "));
+      int gramSum = Integer.parseInt(gram);
+      sum1 = sum1 + gramSum;
+      //s¢um1 = sum1+gram;
     }
   }
-
-private void sumGram() throws IOException{
-    ArrayList<String> marsvinArrayList = new ArrayList<>();
-    marsvinArrayList.add(String.valueOf(listOfMarsvin));
-    int sum = 0;
-  for (String findGram : marsvinArrayList) {
-    String gram = findGram.substring(findGram.indexOf("Vægt: ")+6);
-    gram = gram.substring(0,gram.indexOf(" "));
-    int gramSum = Integer.parseInt(gram);
-    sum = sum + gramSum;
-  }
-  System.out.println(sum);
+  return sum1;
 }
-
   }
 
+ */
+}
 

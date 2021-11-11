@@ -34,6 +34,13 @@ public class Marsvin implements Comparable {
 
   @Override
   public int compareTo(Object o) {
+    if (o instanceof Marsvin){
+      if (name.length()<((Marsvin) o).name.length()){
+        return -1;
+      }else if (name.length()>((Marsvin) o).name.length()){
+        return 1;
+      }
+    }
     return 0;
   }
 
